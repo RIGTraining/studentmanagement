@@ -49,3 +49,11 @@ class CoursesView(View):
         else:
             print('error have')
             return redirect(request.META['HTTP_REFERER'])
+
+class Dashboard(View):
+    def get(self, request):
+        ac = ClassName.objects.all()
+        courses = Courses.objects.all()
+        trainers = Trainers.objects.all()
+        context = {'ac':ac, 'courses':courses, 'trainers':trainers}
+        return render(request, 'school/index.html', context)
