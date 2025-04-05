@@ -16,3 +16,12 @@ class TrainersCreateForm(forms.ModelForm):
                    'quote': forms.Textarea(attrs={'class': 'form-control', 'rows':3}),
                    
                    }
+
+class CourseCreateForm(forms.ModelForm):
+    class Meta:
+        model = Courses
+        fields = ['course_name', 'duration']
+        widgets = {
+            'course_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'duration': forms.TextInput(attrs={'class': 'form-control'}),
+        }

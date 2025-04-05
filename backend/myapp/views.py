@@ -35,4 +35,17 @@ class CreateTrainer(View):
 
 class CoursesView(View):
     def get(self, request):
-        return render(request, 'Trainer.html')
+        fm = CourseCreateForm()
+        courses = Courses.objects.all()
+        context = {'fm':fm, 'courses':courses}
+        return render(request, 'CoursesView.html', context)
+    
+    def post(self, request):
+        fm = CourseCreateForm(request.POST)
+        if fm.is_valid():
+            fm.save()
+            return redirect(request.META['HTTP_REFERER'])
+        
+        else:
+            print('error have')
+            return redirect(request.META['HTTP_REFERER'])

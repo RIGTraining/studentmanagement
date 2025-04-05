@@ -26,6 +26,8 @@ urlpatterns = [
     path('', Homepage.as_view(), name='Homepage'),
     path('trainer/', TrainerView.as_view(), name='TrainerView'),
     path('trainer/create/', CreateTrainer.as_view(), name='CreateTrainer'),
+    
+    path('courses/', CoursesView.as_view(), name='CoursesView'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
