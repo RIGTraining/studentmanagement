@@ -25,6 +25,8 @@
   --accent-color: #5fcf80; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --loginbtn-color: #3d7c60; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -251,6 +253,17 @@ h6 {
 .header .btn-getstarted:focus {
   color: var(--contrast-color);
   background: var(--accent-color);
+  font-size: 14px;
+  padding: 8px 25px;
+  margin: 0 0 0 30px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.header .btn-login,
+.header .btn-login:focus {
+  color: var(--contrast-color);
+  background: var(--loginbtn-color);
   font-size: 14px;
   padding: 8px 25px;
   margin: 0 0 0 30px;
@@ -1846,6 +1859,8 @@ section,
 
 .contact .php-email-form input[type=text],
 .contact .php-email-form input[type=email],
+.contact .php-email-form input[type=password],
+
 .contact .php-email-form textarea {
   font-size: 14px;
   padding: 10px 15px;
@@ -1858,17 +1873,28 @@ section,
 
 .contact .php-email-form input[type=text]:focus,
 .contact .php-email-form input[type=email]:focus,
+.contact .php-email-form input[type=password]:focus,
 .contact .php-email-form textarea:focus {
   border-color: var(--accent-color);
 }
 
 .contact .php-email-form input[type=text]::placeholder,
 .contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form input[type=password]::placeholder,
 .contact .php-email-form textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
 .contact .php-email-form button[type=submit] {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 30px 12px 30px;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.contact .submitBtn button[type=submit] {
   color: var(--contrast-color);
   background: var(--accent-color);
   border: 0;

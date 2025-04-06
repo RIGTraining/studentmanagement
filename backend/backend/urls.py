@@ -24,11 +24,19 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Homepage.as_view(), name='Homepage'),
-    path('Dashboards/', Dashboard.as_view(), name='Dashboard'),
+    path('Dashboard/', Dashboard.as_view(), name='Dashboard'),
     path('trainer/', TrainerView.as_view(), name='TrainerView'),
     path('trainer/create/', CreateTrainer.as_view(), name='CreateTrainer'),
+    path('register/', RegisterStudent.as_view(), name='RegisterStudent'),
+    
+    path('login', UserLoginView.as_view(), name = 'UserLoginView'),
+    path('logout/', UserLogoutView.as_view(), name='UserLogoutView'),
     
     path('courses/', CoursesView.as_view(), name='CoursesView'),
+    
+    #school
+    path('StudentList/', StudentList.as_view(), name='StudentList'),
+    path('class/list/', ClassList.as_view(), name='ClassList'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

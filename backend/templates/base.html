@@ -69,8 +69,13 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
+      {% if request.user.is_authenticated %}
+      <a class="btn-getstarted" href="{% url 'RegisterStudent' %}">My Account</a>
+      {% else %}
+      <a class="btn-getstarted" href="{% url 'RegisterStudent' %}">Register</a>
+      <a class="btn-login" href="{% url 'RegisterStudent' %}">Login</a>
 
-      <a class="btn-getstarted" href="#">Get Started</a>
+      {% endif %}
 
     </div>
   </header>

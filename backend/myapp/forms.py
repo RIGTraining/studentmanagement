@@ -1,5 +1,7 @@
 from django import forms
 from .models import *
+from django.contrib.auth.models import User
+
 
 class ULoginForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput())
@@ -25,3 +27,28 @@ class CourseCreateForm(forms.ModelForm):
             'course_name': forms.TextInput(attrs={'class': 'form-control'}),
             'duration': forms.TextInput(attrs={'class': 'form-control'}),
         }
+        
+class UserRegister(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name',  'email','username', 'password']
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'password': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+        
+class ClassNameForm(forms.ModelForm):
+    class Meta:
+        model = ClassName
+        fields = ['class_name', 'course',  'trainer','start_date', 'end_date', 'class_status']
+        widgets = {
+            'class_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'course': forms.Select(attrs={'class': 'form-control'}),
+            'trainer': forms.Select(attrs={'class': 'form-control'}),
+            'start_date': forms.DateInput(attrs={'type':'date', 'class': 'form-control w-50'}),
+            'end_date': forms.DateInput(attrs={'type':'date', 'class': 'form-control w-50'}),
+            'class_status': forms.Select(attrs={'class': 'form-control'}),
+        }        
