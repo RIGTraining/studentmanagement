@@ -101,6 +101,9 @@ class UserLogoutView(View):
         return redirect('UserLoginView')
 
 
+class StudentPortal(View):
+    def get(self, request):
+        pass
 
 # School 
 class Dashboard(View):
@@ -115,12 +118,29 @@ class Dashboard(View):
     
 class StudentList(View):
     def get(self, request):
-        st = User.objects.filter(is_staff = False)
-        context ={'st':st}
+        st = StudentsEnroll.objects.all()
+        stuForm = StudentRegForm()
+        context ={'st':st, 'stuForm':stuForm}
         return render(request, 'school/StudentList.html', context)
+    
+    def post(self, request):
+        fm = StudentRegForm(request.POST)
+        if fm.is_valid():
+            fm.save()
+        return redirect(request.META['HTTP_REFERER'])
+        
+    
+    
     
 class ClassList(View):
     def get(self, request):
         ac = ClassName.objects.all()
         context = {'ac':ac}
         return render(request, 'school/ClassList.html', context)
+    
+    def post(self, request):
+        fm = ClassNameForm(request.POST)
+        if fm.is_valid():
+            fm.save()
+        return redirect(request.META['HTTP_REFERER'])
+

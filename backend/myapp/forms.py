@@ -52,3 +52,14 @@ class ClassNameForm(forms.ModelForm):
             'end_date': forms.DateInput(attrs={'type':'date', 'class': 'form-control w-50'}),
             'class_status': forms.Select(attrs={'class': 'form-control'}),
         }        
+
+class StudentRegForm(forms.ModelForm):
+    class Meta:
+        model = StudentsEnroll
+        fields = ['usr', 'classname', 'enroll_date']
+        widgets = {
+            'usr': forms.Select(attrs={'class': 'form-control'}),
+            'classname': forms.Select(attrs={'class': 'form-control'}),
+            'enroll_date': forms.DateInput(attrs={'type':'date', 'class': 'form-control w-50'}),
+            
+        }

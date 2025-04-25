@@ -14,8 +14,8 @@
           <!-- <h6 class="op-7 mb-2"> Admin Dashboard</h6> -->
         </div>
         <div class="ms-md-auto py-2 py-md-0">
-          <a href="#" class="btn btn-label-info btn-round me-2">Add Course</a>
-          <a href="#" class="btn btn-primary btn-round">Add Class</a>
+          <!-- <a href="#" class="btn btn-label-info btn-round me-2">Add Course</a> -->
+          <!-- <a href="#" class="btn btn-primary btn-round">Add Class</a> -->
         </div>
       </div>
       
@@ -44,13 +44,33 @@
                       class="dropdown-menu"
                       aria-labelledby="dropdownMenuButton"
                     >
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#"
-                        >Something else here</a
-                      >
+                      <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#addStudentModal">Add New Students</a>
+                      
                     </div>
                   </div>
+           <!-- modal         -->
+<div class="modal fade" id="addStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Class</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="" method="post">{% csrf_token %}
+      <div class="modal-body">
+        
+        {{stuForm}}
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Add New Class</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+<!-- end modal  -->
                 </div>
               </div>
             </div>
@@ -61,9 +81,9 @@
                   <thead class="thead-light">
                     <tr>
                       <th scope="col">Student Name</th>
-                      <th scope="col" class="text-end">Username</th>
-                      <th scope="col" class="text-end">Email</th>
                       <th scope="col" class="text-end">Class</th>
+                      <th scope="col" class="text-end">Date</th>
+                      <th scope="col" class="text-end">Action</th>
                       
                     </tr>
                   </thead>
@@ -71,22 +91,13 @@
 {% for i in st %}
                     <tr>
                       <th scope="row">
-                        <!-- <button
-                          class="btn btn-icon btn-round btn-success btn-sm me-2"
-                        >
-                          <i class="fa fa-check"></i>
-                        </button> -->
-                        {{i.first_name}} {{i.last_name}}
+                        
+                        {{i.usr}} 
                       </th>
-                      <td class="text-end">{{i.username}}</td>
-                      <td class="text-end">{{i.email}}</td>
+                      <td class="text-end">{{i.classname}}</td>
+                      <td class="text-end">{{i.enroll_date}}</td>
                       <td class="text-end">
-                        <!-- <button
-                          class="btn btn-icon btn-round btn-success btn-sm me-2"
-                        >
-                          <i class="fa fa-check"></i>
-                        </button> -->
-                        {{i.is_active}}
+                        <a href="#" class="btn btn-sm btn-info">edit</a>
                     </td>
                       
                     </tr>
