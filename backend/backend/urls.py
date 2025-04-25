@@ -33,6 +33,7 @@ urlpatterns = [
     path('logout/', UserLogoutView.as_view(), name='UserLogoutView'),
     
     path('courses/', CoursesView.as_view(), name='CoursesView'),
+    path('CoursePageView/', CoursePageView.as_view(), name='CoursePageView'),
     
     #school
     path('StudentList/', StudentList.as_view(), name='StudentList'),

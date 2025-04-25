@@ -53,6 +53,7 @@ class CoursesView(View):
             return redirect(request.META['HTTP_REFERER'])
 
 
+
 class RegisterStudent(View):
     def get(self, request):
         reg = UserRegister()
@@ -143,4 +144,16 @@ class ClassList(View):
         if fm.is_valid():
             fm.save()
         return redirect(request.META['HTTP_REFERER'])
+
+
+class CoursePageView(View):
+    def get(self, request):
+        courses = Courses.objects.all()
+        context = {'courses':courses}
+        return render(request, 'CoursePageView.html', context)
+    
+
+
+
+
 
