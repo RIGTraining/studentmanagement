@@ -21,7 +21,7 @@
       <nav class="breadcrumbs">
         <div class="container">
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Home</a></li>
             <li class="current">Courses</li>
           </ol>
         </div>
@@ -40,13 +40,13 @@
               <img src="{% static 'assets/img/course-1.jpg' %}" class="img-fluid" alt="...">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <p class="category">Web Development</p>
-                  <p class="price">$169</p>
+                  <!-- <p class="category"><a href="#"></a></p> -->
+                  <p class="price"></p>
                 </div>
 
-                <h3><a href="#">Website Design</a></h3>
-                <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
+                <h3><a href="{% url 'CoursePageDetail' i.id %}">{{i.course_name}}</a></h3>
+                <p class="description">{{i.description|truncatewords:20}}</p>
+                <!-- <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
                     <img src="{% static 'assets/img/trainers/trainer-1-2.jpg' %}" class="img-fluid" alt="">
                     <a href="" class="trainer-link">Antonio</a>
@@ -56,7 +56,7 @@
                     &nbsp;&nbsp;
                     <i class="bi bi-heart heart-icon"></i>&nbsp;65
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div> <!-- End Course Item-->

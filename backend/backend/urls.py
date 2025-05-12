@@ -34,6 +34,7 @@ urlpatterns = [
     
     path('courses/', CoursesView.as_view(), name='CoursesView'),
     path('CoursePageView/', CoursePageView.as_view(), name='CoursePageView'),
+    path('CoursePageDetail/<int:id>/', CoursePageDetail.as_view(), name='CoursePageDetail'),
     
     #school
     path('StudentList/', StudentList.as_view(), name='StudentList'),

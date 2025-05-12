@@ -13,8 +13,10 @@ class Trainers(models.Model):
         return self.trainer_name
 
 class Courses(models.Model):
+    image = models.ImageField(upload_to='course_photo', blank=True, null=True)
     course_name = models.CharField(max_length=255)
     duration = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     

@@ -152,7 +152,18 @@ class CoursePageView(View):
         context = {'courses':courses}
         return render(request, 'CoursePageView.html', context)
     
-
+class CoursePageDetail(View):
+    def get(self, request, id):
+        courses = Courses.objects.get(id=id)
+        # print(courses)
+        context = {'courses':courses}
+        return render(request, 'CoursePageDetail.html', context)
+        
+    
+# class CourseEnrollRegister(View):
+#     def post(self, request):
+#         print('hello data')
+#         return redirect(request.META['HTTP_REFERER'])
 
 
 
