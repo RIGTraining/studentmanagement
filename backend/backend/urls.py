@@ -29,7 +29,7 @@ urlpatterns = [
     path('trainer/create/', CreateTrainer.as_view(), name='CreateTrainer'),
     path('register/', RegisterStudent.as_view(), name='RegisterStudent'),
     
-    path('login', UserLoginView.as_view(), name = 'UserLoginView'),
+    path('login/', UserLoginView.as_view(), name = 'UserLoginView'),
     path('logout/', UserLogoutView.as_view(), name='UserLogoutView'),
     
     path('courses/', CoursesView.as_view(), name='CoursesView'),
